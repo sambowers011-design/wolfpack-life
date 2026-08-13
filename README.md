@@ -18,6 +18,7 @@ This is the welcome flow plus three real pages, not the whole app.
 - **Today** (`today.html`) — an "Up next" summary that highlights the class happening now or next, today's classes filtered from the weekly schedule, and a task list, all editable
 - **Classes** (`classes.html`) — the full weekly schedule grouped by day, with add/edit/delete on the same recurring class data Today reads from
 - **Calendar** (`calendar.html`) — a 7-day week grid merging the recurring class schedule with dated tasks, with prev/this-week/next-week navigation and per-day quick-add
+- **Privacy** (`privacy.html`) and **Terms** (`terms.html`) — real pages now; every footer previously linked to `#privacy`/`#terms` anchors that didn't exist anywhere
 
 **Not built:**
 - The other six pages — Goals, Campus Map, Opportunities, Chat, Friends, Profile — are listed on the board page as static description cards tagged "Soon," not real pages.

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy / Wolfpack Life</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23CC0000%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 font-family=%22Arial%22 font-weight=%22900%22 fill=%22white%22 text-anchor=%22middle%22>W</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">W</span>
+        <span class="brand-name">Wolfpack Life</span>
+      </a>
+      <a class="header-cta" href="index.html">← Back</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="board-hero">
+      <div class="wrap">
+        <p class="eyebrow">Privacy</p>
+        <h1 class="board-hero-title">Where your data actually goes.</h1>
+      </div>
+    </section>
+
+    <section class="today-body">
+      <div class="wrap prose">
+        <p>Wolfpack Life is an independent student demo project with no backend server and no database. Here's exactly what that means for your data:</p>
+
+        <h2>Accounts</h2>
+        <p>When you create an account, your name, email, and a hashed version of your password are saved to your browser's <code>localStorage</code>. Nothing is sent anywhere — there's no server to send it to.</p>
+
+        <h2>Classes, tasks, and sessions</h2>
+        <p>Your class schedule and tasks are stored the same way, in your browser's <code>localStorage</code>, tied to the account you signed in with. Your current sign-in session lives in <code>sessionStorage</code> and clears when you close the tab.</p>
+
+        <h2>Guest mode</h2>
+        <p>Anything you add while browsing as a guest lives only in <code>sessionStorage</code> for that tab. Close the tab and it's gone.</p>
+
+        <h2>What we don't do</h2>
+        <p>No analytics, no tracking cookies, no third-party scripts reading your data, no data leaving your browser. We can't see what you enter because there's nowhere for it to go.</p>
+
+        <h2>One honest caveat</h2>
+        <p>Passwords are hashed before storage, but this is still not production-grade security — anyone with access to this browser profile could inspect the stored data. Don't reuse a real password here.</p>
+
+        <p class="prose-note">Not affiliated with NC State University. This page describes how this specific demo project handles data, nothing more.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+      <a class="footer-cta" href="index.html">← Back to welcome</a>
+    </div>
+  </footer>
+
+</body>
+</html>
