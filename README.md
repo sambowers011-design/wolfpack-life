@@ -8,7 +8,7 @@ No custom domain yet — running on the free `github.io` URL for now. If a domai
 
 ## Status: not done
 
-This is the welcome flow plus five real pages, not the whole app.
+This is the welcome flow plus six real pages, not the whole app.
 
 **Built:**
 - Welcome / marketing page
@@ -19,11 +19,12 @@ This is the welcome flow plus five real pages, not the whole app.
 - **Goals** (`goals.html`) — goals grouped by term (chronologically sorted, parsing "Season YYYY" strings), each with a click-to-cycle status pill (Not started → In progress → Done), add/edit/delete. The add form defaults the term field to the current term based on today's date.
 - **Classes** (`classes.html`) — the full weekly schedule grouped by day, with add/edit/delete on the same recurring class data Today reads from
 - **Calendar** (`calendar.html`) — a 7-day week grid merging the recurring class schedule with dated tasks, with prev/this-week/next-week navigation and per-day quick-add
+- **Campus map** (`campus-map.html`) — a real, live embedded OpenStreetMap centered on NC State's actual main campus (verified coordinates, not invented), plus a personal "saved places" list where each entry links out to a real map search. No fabricated building directory — there's no verified dataset to build one honestly from, so it's real map + your own notes rather than pretend official data.
 - **Profile** (`profile.html`) — edit your display name, change your password (requires the current one), and a danger-zone account deletion (also requires your password) that wipes your account and all its data. Email is read-only since it's the storage key. Guests see a "no account to edit" state instead.
 - **Privacy** (`privacy.html`) and **Terms** (`terms.html`) — real pages now; every footer previously linked to `#privacy`/`#terms` anchors that didn't exist anywhere
 
 **Not built:**
-- The other four pages — Campus Map, Opportunities, Chat, Friends — are listed on the board page as static description cards tagged "Soon," not real pages. Chat and Friends in particular are a poor fit for this architecture (no backend means no real multi-user data) and may stay stubs.
+- The other three pages — Opportunities, Chat, Friends — are listed on the board page as static description cards tagged "Soon," not real pages. Chat and Friends in particular are a poor fit for this architecture (no backend means no real multi-user data) and may stay stubs.
 
 **Design:** white/NC State red palette, Roboto Slab display type paired with Inter for UI, rounded cards and pill-shaped controls, a solid red block for the feature section. Originally started closer to another independent student-app landing page's cream/black, sharp-square, condensed-type look; this pass replaced the type, palette, corner radius, and section treatment to make it visually its own.
 

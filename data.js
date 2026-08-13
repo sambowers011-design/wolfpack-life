@@ -15,13 +15,18 @@ function dataStoreFor(session) {
 
 function loadData() {
   const session = getSession();
-  const empty = { classes: [], tasks: [], goals: [] };
+  const empty = { classes: [], tasks: [], goals: [], places: [] };
   if (!session) return empty;
   const { store, key } = dataStoreFor(session);
   try {
     const parsed = JSON.parse(store.getItem(key));
     return parsed
-      ? { classes: parsed.classes || [], tasks: parsed.tasks || [], goals: parsed.goals || [] }
+      ? {
+          classes: parsed.classes || [],
+          tasks: parsed.tasks || [],
+          goals: parsed.goals || [],
+          places: parsed.places || [],
+        }
       : empty;
   } catch {
     return empty;
@@ -108,6 +113,20 @@ function cycleGoalStatus(id) {
   if (goal) {
     goal.status = order[(order.indexOf(goal.status) + 1) % order.length];
   }
+  saveData(data);
+  return data;
+}
+
+function addPlace(place) {
+  const data = loadData();
+  data.places.push({ id: uid(), ...place, createdAt: Date.now() });
+  saveData(data);
+  return data;
+}
+
+function removePlace(id) {
+  const data = loadData();
+  data.places = data.places.filter((p) => p.id !== id);
   saveData(data);
   return data;
 }
