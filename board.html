@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your board / Wolfpack Life</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23CC0000%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 font-family=%22Arial%22 font-weight=%22900%22 fill=%22white%22 text-anchor=%22middle%22>W</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">W</span>
+        <span class="brand-name">Wolfpack Life</span>
+      </a>
+      <button type="button" class="header-cta link-btn" id="signOutBtn">Sign out →</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="board-hero">
+      <div class="wrap">
+        <p class="eyebrow">Your board</p>
+        <h1 class="board-hero-title" id="greeting">Hey there.</h1>
+        <p class="hero-sub" id="guestNotice" hidden>
+          You're browsing as a guest — nothing you do here is saved. <a class="link-btn-inline" href="account.html?mode=create">Create an account</a> to keep it.
+        </p>
+      </div>
+    </section>
+
+    <section class="board" id="board">
+      <div class="wrap">
+        <p class="eyebrow eyebrow-light">The whole app</p>
+        <h2 class="board-title">Nine pages, one board.</h2>
+
+        <ol class="page-list">
+          <li><span class="num">01</span><h3>Today</h3><p>Your day, laid out — classes, tasks, and what's next.</p></li>
+          <li><span class="num">02</span><h3>Goals</h3><p>Track what you're working toward, term by term.</p></li>
+          <li><span class="num">03</span><h3>Classes</h3><p>Schedule, syllabi, and assignments in one list.</p></li>
+          <li><span class="num">04</span><h3>Calendar</h3><p>Everything on campus, synced to your week.</p></li>
+          <li><span class="num">05</span><h3>Campus map</h3><p>Find your next building before you're late.</p></li>
+          <li><span class="num">06</span><h3>Opportunities</h3><p>Jobs, research, and clubs worth a look.</p></li>
+          <li><span class="num">07</span><h3>Chat</h3><p>Message classmates and study groups directly.</p></li>
+          <li><span class="num">08</span><h3>Friends</h3><p>See who's around and what they're up to.</p></li>
+          <li><span class="num">09</span><h3>Profile</h3><p>Your info, your year, your Pack.</p></li>
+        </ol>
+
+        <div class="board-cta">
+          <h3>This is a demo board.</h3>
+          <p>Each page above is a placeholder — this project only implements the welcome flow and account sign-in for now.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-links">
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+      </div>
+      <a class="footer-cta" href="index.html">← Back to welcome</a>
+    </div>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script src="board.js"></script>
+</body>
+</html>
