@@ -171,6 +171,11 @@ classForm.addEventListener('submit', (e) => {
   const end = document.getElementById('classEndInput').value;
   const days = Array.from(document.querySelectorAll('#dayPicker input:checked')).map((el) => Number(el.value));
 
+  if (!name) {
+    classFormError.textContent = 'Enter a class name.';
+    classFormError.hidden = false;
+    return;
+  }
   if (!days.length) {
     classFormError.textContent = 'Pick at least one day.';
     classFormError.hidden = false;

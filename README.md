@@ -30,6 +30,7 @@ This is the welcome flow plus three real pages, not the whole app.
 There's no backend or database. `auth.js` stores accounts in the browser's `localStorage` (password hashed with SHA-256 before saving) and sessions in `sessionStorage`. `data.js` stores each signed-in user's classes and tasks in `localStorage` keyed by their email; guest data lives in `sessionStorage` and disappears when the tab closes. This means:
 - Accounts and data only exist in the browser they were created in — signing in from a different device or browser starts empty.
 - This is not production-grade security. Don't reuse a real password here.
+- If you're browsing as a guest and create an account, your current guest classes/tasks are migrated into the new account (so "Create an account to keep it" is actually true) — but only on account *creation*, not on signing into an existing account from a guest session.
 
 ## Running locally
 

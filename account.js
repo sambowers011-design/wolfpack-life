@@ -48,7 +48,12 @@ authForm.addEventListener('submit', async (e) => {
     if (mode === 'create') {
       if (!nameInput.value.trim()) throw new Error('Enter your name.');
       if (passwordInput.value.length < 8) throw new Error('Password needs at least 8 characters.');
+      const wasGuest = existingSession?.guest;
+      const guestData = wasGuest ? loadData() : null;
       await createAccount(nameInput.value, emailInput.value, passwordInput.value);
+      if (guestData && (guestData.classes.length || guestData.tasks.length)) {
+        saveData(guestData);
+      }
     } else {
       await signIn(emailInput.value, passwordInput.value);
     }
@@ -63,6 +68,7 @@ authForm.addEventListener('submit', async (e) => {
 
 render();
 
-if (getSession()) {
+const existingSession = getSession();
+if (existingSession && !existingSession.guest) {
   window.location.href = 'board.html';
 }
