@@ -8,7 +8,7 @@ No custom domain yet — running on the free `github.io` URL for now. If a domai
 
 ## Status: not done
 
-This is the welcome flow plus two real pages, not the whole app.
+This is the welcome flow plus three real pages, not the whole app.
 
 **Built:**
 - Welcome / marketing page
@@ -17,9 +17,12 @@ This is the welcome flow plus two real pages, not the whole app.
 - A `board.html` page that gates on being signed in and links out to the pages below
 - **Today** (`today.html`) — an "Up next" summary that highlights the class happening now or next, today's classes filtered from the weekly schedule, and a task list, all editable
 - **Classes** (`classes.html`) — the full weekly schedule grouped by day, with add/edit/delete on the same recurring class data Today reads from
+- **Calendar** (`calendar.html`) — a 7-day week grid merging the recurring class schedule with dated tasks, with prev/this-week/next-week navigation and per-day quick-add
 
 **Not built:**
-- The other seven pages — Goals, Calendar, Campus Map, Opportunities, Chat, Friends, Profile — are listed on the board page as static description cards tagged "Soon," not real pages.
+- The other six pages — Goals, Campus Map, Opportunities, Chat, Friends, Profile — are listed on the board page as static description cards tagged "Soon," not real pages.
+
+**Design note:** the visual language (cream/black, condensed bold type, sharp square cards) started as a structural reference from another independent student-app landing page and hasn't been differentiated yet. A design pass to make this visually distinct is planned before this goes further.
 
 ## How accounts and data work (and why it's not real auth)
 

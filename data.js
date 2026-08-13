@@ -55,9 +55,9 @@ function removeClass(id) {
   return data;
 }
 
-function addTask(text) {
+function addTask(text, date = todayISO()) {
   const data = loadData();
-  data.tasks.push({ id: uid(), text, done: false, date: todayISO(), createdAt: Date.now() });
+  data.tasks.push({ id: uid(), text, done: false, date, createdAt: Date.now() });
   saveData(data);
   return data;
 }
