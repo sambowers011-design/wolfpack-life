@@ -8,21 +8,22 @@ No custom domain yet — running on the free `github.io` URL for now. If a domai
 
 ## Status: not done
 
-This is the welcome flow only, not the app.
+This is the welcome flow plus one real page, not the whole app.
 
 **Built:**
 - Welcome / marketing page
 - Create account, sign in, sign out (client-side, see caveat below)
 - "Browse as a guest" mode
-- A `board.html` page that gates on being signed in
+- A `board.html` page that gates on being signed in and links out to the pages below
+- **Today** (`today.html`) — an "Up next" summary, a recurring weekly class schedule filtered to today, and a task list, all editable
 
 **Not built:**
-- The nine pages themselves — Today, Goals, Classes, Calendar, Campus Map, Opportunities, Chat, Friends, Profile — are listed on the board page as static description cards, not real pages. None of them exist yet.
+- The other eight pages — Goals, Classes, Calendar, Campus Map, Opportunities, Chat, Friends, Profile — are listed on the board page as static description cards tagged "Soon," not real pages.
 
-## How accounts work (and why it's not real auth)
+## How accounts and data work (and why it's not real auth)
 
-There's no backend or database. `auth.js` stores accounts in the browser's `localStorage` (password hashed with SHA-256 before saving) and sessions in `sessionStorage`. This means:
-- Accounts only exist in the browser they were created in — signing in from a different device or browser won't see them.
+There's no backend or database. `auth.js` stores accounts in the browser's `localStorage` (password hashed with SHA-256 before saving) and sessions in `sessionStorage`. `data.js` stores each signed-in user's classes and tasks in `localStorage` keyed by their email; guest data lives in `sessionStorage` and disappears when the tab closes. This means:
+- Accounts and data only exist in the browser they were created in — signing in from a different device or browser starts empty.
 - This is not production-grade security. Don't reuse a real password here.
 
 ## Running locally
