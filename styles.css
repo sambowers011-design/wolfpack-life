@@ -710,6 +710,21 @@ button { cursor: pointer; font: inherit; }
 .status-now { background: var(--red); color: var(--white); }
 .status-next { background: var(--ink); color: var(--white); }
 
+.goal-status {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  border: none;
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.goal-status.not-started { background: var(--card); color: var(--muted); box-shadow: inset 0 0 0 1px var(--line); }
+.goal-status.in-progress { background: var(--ink); color: var(--white); }
+.goal-status.done { background: var(--red); color: var(--white); }
+
 .remove-btn {
   background: none;
   border: none;

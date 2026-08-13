@@ -15,12 +15,14 @@ function dataStoreFor(session) {
 
 function loadData() {
   const session = getSession();
-  const empty = { classes: [], tasks: [] };
+  const empty = { classes: [], tasks: [], goals: [] };
   if (!session) return empty;
   const { store, key } = dataStoreFor(session);
   try {
     const parsed = JSON.parse(store.getItem(key));
-    return parsed ? { classes: parsed.classes || [], tasks: parsed.tasks || [] } : empty;
+    return parsed
+      ? { classes: parsed.classes || [], tasks: parsed.tasks || [], goals: parsed.goals || [] }
+      : empty;
   } catch {
     return empty;
   }
@@ -73,6 +75,39 @@ function toggleTask(id) {
 function removeTask(id) {
   const data = loadData();
   data.tasks = data.tasks.filter((t) => t.id !== id);
+  saveData(data);
+  return data;
+}
+
+function addGoal(goal) {
+  const data = loadData();
+  data.goals.push({ id: uid(), status: 'not-started', ...goal, createdAt: Date.now() });
+  saveData(data);
+  return data;
+}
+
+function updateGoal(id, patch) {
+  const data = loadData();
+  const goal = data.goals.find((g) => g.id === id);
+  if (goal) Object.assign(goal, patch);
+  saveData(data);
+  return data;
+}
+
+function removeGoal(id) {
+  const data = loadData();
+  data.goals = data.goals.filter((g) => g.id !== id);
+  saveData(data);
+  return data;
+}
+
+function cycleGoalStatus(id) {
+  const order = ['not-started', 'in-progress', 'done'];
+  const data = loadData();
+  const goal = data.goals.find((g) => g.id === id);
+  if (goal) {
+    goal.status = order[(order.indexOf(goal.status) + 1) % order.length];
+  }
   saveData(data);
   return data;
 }
