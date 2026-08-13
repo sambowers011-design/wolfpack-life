@@ -26,9 +26,13 @@ function init() {
 
   guestNotice.hidden = !session.guest;
 
+  tick();
+  setInterval(tick, 30000);
+}
+
+function tick() {
   const now = new Date();
   dateHeading.textContent = `${DAY_NAMES[now.getDay()]}, ${MONTH_NAMES[now.getMonth()]} ${now.getDate()}`;
-
   render();
 }
 
@@ -54,7 +58,7 @@ function render() {
     .filter((c) => c.days.includes(todayDow))
     .sort((a, b) => timeToMinutes(a.start) - timeToMinutes(b.start));
 
-  renderClasses(todaysClasses);
+  renderClasses(todaysClasses, nowMinutes);
   renderTasks(data.tasks.filter((t) => t.date === todayISO()));
   renderNext(todaysClasses, nowMinutes, data.tasks);
 }
@@ -81,16 +85,29 @@ function renderNext(todaysClasses, nowMinutes, allTasks) {
   }
 }
 
-function renderClasses(items) {
+function renderClasses(items, nowMinutes) {
   classList.innerHTML = '';
   classEmpty.hidden = items.length > 0;
+
+  const nextId = items.find((c) => timeToMinutes(c.start) > nowMinutes)?.id;
+
   for (const c of items) {
+    const start = timeToMinutes(c.start);
+    const end = timeToMinutes(c.end);
+    const isNow = start <= nowMinutes && nowMinutes < end;
+    const isPast = end <= nowMinutes;
+    const isNext = !isNow && c.id === nextId;
+
     const li = document.createElement('li');
-    li.className = 'class-item';
+    li.className = `class-item${isNow ? ' is-now' : ''}${isPast ? ' is-past' : ''}${isNext ? ' is-next' : ''}`;
     li.innerHTML = `
       <div class="class-time">${formatTime(c.start)} – ${formatTime(c.end)}</div>
       <div class="class-info">
-        <div class="class-name">${escapeHtml(c.name)}</div>
+        <div class="class-name">
+          ${escapeHtml(c.name)}
+          ${isNow ? '<span class="status-badge status-now">Now</span>' : ''}
+          ${isNext ? '<span class="status-badge status-next">Next</span>' : ''}
+        </div>
         ${c.location ? `<div class="class-location">${escapeHtml(c.location)}</div>` : ''}
       </div>
       <button type="button" class="remove-btn" data-id="${c.id}" aria-label="Remove class">×</button>
