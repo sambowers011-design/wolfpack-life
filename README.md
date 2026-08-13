@@ -22,7 +22,7 @@ This is the welcome flow plus three real pages, not the whole app.
 **Not built:**
 - The other six pages — Goals, Campus Map, Opportunities, Chat, Friends, Profile — are listed on the board page as static description cards tagged "Soon," not real pages.
 
-**Design note:** the visual language (cream/black, condensed bold type, sharp square cards) started as a structural reference from another independent student-app landing page and hasn't been differentiated yet. A design pass to make this visually distinct is planned before this goes further.
+**Design:** white/NC State red palette, Roboto Slab display type paired with Inter for UI, rounded cards and pill-shaped controls, a solid red block for the feature section. Originally started closer to another independent student-app landing page's cream/black, sharp-square, condensed-type look; this pass replaced the type, palette, corner radius, and section treatment to make it visually its own.
 
 ## How accounts and data work (and why it's not real auth)
 
