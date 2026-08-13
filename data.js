@@ -40,6 +40,14 @@ function addClass(cls) {
   return data;
 }
 
+function updateClass(id, patch) {
+  const data = loadData();
+  const cls = data.classes.find((c) => c.id === id);
+  if (cls) Object.assign(cls, patch);
+  saveData(data);
+  return data;
+}
+
 function removeClass(id) {
   const data = loadData();
   data.classes = data.classes.filter((c) => c.id !== id);

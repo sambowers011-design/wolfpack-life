@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classes / Wolfpack Life</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23CC0000%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 font-family=%22Arial%22 font-weight=%22900%22 fill=%22white%22 text-anchor=%22middle%22>W</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">W</span>
+        <span class="brand-name">Wolfpack Life</span>
+      </a>
+      <nav class="app-nav">
+        <a class="app-nav-link" href="board.html">Home</a>
+        <a class="app-nav-link" href="today.html">Today</a>
+        <a class="app-nav-link active" href="classes.html">Classes</a>
+        <button type="button" class="header-cta link-btn" id="signOutBtn">Sign out →</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="today-hero">
+      <div class="wrap">
+        <p class="eyebrow">Classes</p>
+        <h1 class="board-hero-title">Your weekly schedule.</h1>
+        <p class="hero-sub" id="guestNotice" hidden>
+          You're browsing as a guest — nothing you add here is saved. <a class="link-btn-inline" href="account.html?mode=create">Create an account</a> to keep it.
+        </p>
+      </div>
+    </section>
+
+    <section class="today-body">
+      <div class="wrap">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Weekly classes</h2>
+            <button type="button" class="link-btn" id="toggleClassForm">+ Add class</button>
+          </div>
+
+          <form id="classForm" class="inline-form" hidden>
+            <p class="form-mode-label" id="formModeLabel">New class</p>
+            <label class="field">
+              <span>Class name</span>
+              <input type="text" id="classNameInput" required />
+            </label>
+            <label class="field">
+              <span>Location (optional)</span>
+              <input type="text" id="classLocationInput" />
+            </label>
+            <div class="field-row">
+              <label class="field">
+                <span>Starts</span>
+                <input type="time" id="classStartInput" required />
+              </label>
+              <label class="field">
+                <span>Ends</span>
+                <input type="time" id="classEndInput" required />
+              </label>
+            </div>
+            <label class="field">
+              <span>Days</span>
+              <div class="day-picker" id="dayPicker">
+                <label class="day-chip"><input type="checkbox" value="1" /><span>Mon</span></label>
+                <label class="day-chip"><input type="checkbox" value="2" /><span>Tue</span></label>
+                <label class="day-chip"><input type="checkbox" value="3" /><span>Wed</span></label>
+                <label class="day-chip"><input type="checkbox" value="4" /><span>Thu</span></label>
+                <label class="day-chip"><input type="checkbox" value="5" /><span>Fri</span></label>
+                <label class="day-chip"><input type="checkbox" value="6" /><span>Sat</span></label>
+                <label class="day-chip"><input type="checkbox" value="0" /><span>Sun</span></label>
+              </div>
+            </label>
+            <div class="field-error" id="classFormError" hidden></div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-solid btn-small" id="classSubmitBtn">Add class</button>
+              <button type="button" class="link-btn" id="cancelEditBtn" hidden>Cancel</button>
+            </div>
+          </form>
+
+          <div id="schedule"></div>
+          <p class="empty-state" id="scheduleEmpty" hidden>No classes yet — add your first one above.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-links">
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+      </div>
+      <a class="footer-cta" href="board.html">← Back to board</a>
+    </div>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script src="data.js"></script>
+  <script src="classes.js"></script>
+</body>
+</html>

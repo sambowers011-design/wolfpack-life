@@ -516,6 +516,22 @@ button { cursor: pointer; font: inherit; }
   margin-bottom: 20px;
 }
 
+.form-mode-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--red);
+  margin-bottom: 14px;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
 .field-row {
   display: flex;
   gap: 12px;
@@ -554,6 +570,19 @@ button { cursor: pointer; font: inherit; }
   border-color: var(--black);
 }
 
+.day-group { margin-bottom: 28px; }
+.day-group:last-child { margin-bottom: 0; }
+
+.day-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+
 .class-list, .task-list { list-style: none; }
 
 .class-item {
@@ -564,6 +593,12 @@ button { cursor: pointer; font: inherit; }
   border-bottom: 1px solid #e8e4db;
 }
 .class-item:last-child { border-bottom: none; }
+
+.class-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
 
 .class-item.is-now {
   background: #fdeaea;

@@ -8,17 +8,18 @@ No custom domain yet — running on the free `github.io` URL for now. If a domai
 
 ## Status: not done
 
-This is the welcome flow plus one real page, not the whole app.
+This is the welcome flow plus two real pages, not the whole app.
 
 **Built:**
 - Welcome / marketing page
 - Create account, sign in, sign out (client-side, see caveat below)
 - "Browse as a guest" mode
 - A `board.html` page that gates on being signed in and links out to the pages below
-- **Today** (`today.html`) — an "Up next" summary, a recurring weekly class schedule filtered to today, and a task list, all editable
+- **Today** (`today.html`) — an "Up next" summary that highlights the class happening now or next, today's classes filtered from the weekly schedule, and a task list, all editable
+- **Classes** (`classes.html`) — the full weekly schedule grouped by day, with add/edit/delete on the same recurring class data Today reads from
 
 **Not built:**
-- The other eight pages — Goals, Classes, Calendar, Campus Map, Opportunities, Chat, Friends, Profile — are listed on the board page as static description cards tagged "Soon," not real pages.
+- The other seven pages — Goals, Calendar, Campus Map, Opportunities, Chat, Friends, Profile — are listed on the board page as static description cards tagged "Soon," not real pages.
 
 ## How accounts and data work (and why it's not real auth)
 
