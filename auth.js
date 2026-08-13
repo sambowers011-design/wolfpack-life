@@ -49,6 +49,34 @@ async function signIn(email, password) {
   setSession({ name: user.name, email: user.email, guest: false });
 }
 
+function updateName(email, name) {
+  const users = readUsers();
+  const key = email.trim().toLowerCase();
+  if (users[key]) {
+    users[key].name = name.trim();
+    writeUsers(users);
+  }
+}
+
+async function changePassword(email, currentPassword, newPassword) {
+  const users = readUsers();
+  const key = email.trim().toLowerCase();
+  const user = users[key];
+  if (!user || user.passwordHash !== (await hashPassword(currentPassword))) {
+    throw new Error('Current password is incorrect.');
+  }
+  user.passwordHash = await hashPassword(newPassword);
+  writeUsers(users);
+}
+
+function removeAccount(email) {
+  const users = readUsers();
+  const key = email.trim().toLowerCase();
+  delete users[key];
+  writeUsers(users);
+  localStorage.removeItem(`wolfpack_data_${key}`);
+}
+
 function setSession(session) {
   sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
 }

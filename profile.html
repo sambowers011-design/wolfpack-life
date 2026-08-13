@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile / Wolfpack Life</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23CC0000%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 font-family=%22Arial%22 font-weight=%22900%22 fill=%22white%22 text-anchor=%22middle%22>W</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">W</span>
+        <span class="brand-name">Wolfpack Life</span>
+      </a>
+      <nav class="app-nav">
+        <a class="app-nav-link" href="board.html">Home</a>
+        <a class="app-nav-link" href="today.html">Today</a>
+        <a class="app-nav-link" href="classes.html">Classes</a>
+        <a class="app-nav-link" href="calendar.html">Calendar</a>
+        <a class="app-nav-link active" href="profile.html">Profile</a>
+        <button type="button" class="header-cta link-btn" id="signOutBtn">Sign out →</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="today-hero">
+      <div class="wrap">
+        <p class="eyebrow">Profile</p>
+        <h1 class="board-hero-title">Your info, your year, your Pack.</h1>
+      </div>
+    </section>
+
+    <section class="today-body">
+      <div class="wrap">
+
+        <div class="panel" id="guestPanel" hidden>
+          <div class="panel-header">
+            <h2>No profile to show</h2>
+          </div>
+          <p class="empty-state">
+            You're browsing as a guest, so there's no account to edit. <a class="link-btn-inline" href="account.html?mode=create">Create an account</a> to get a real profile.
+          </p>
+        </div>
+
+        <div id="accountPanels" hidden>
+          <div class="panel">
+            <div class="panel-header">
+              <h2>Account</h2>
+            </div>
+            <form id="nameForm">
+              <label class="field">
+                <span>Name</span>
+                <input type="text" id="nameInput" required />
+              </label>
+              <label class="field">
+                <span>Email</span>
+                <input type="email" id="emailInput" readonly />
+              </label>
+              <div class="field-error" id="nameFormError" hidden></div>
+              <button type="submit" class="btn btn-solid btn-small" id="nameSubmitBtn">Save name</button>
+            </form>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h2>Password</h2>
+            </div>
+            <form id="passwordForm">
+              <label class="field">
+                <span>Current password</span>
+                <input type="password" id="currentPasswordInput" autocomplete="current-password" required />
+              </label>
+              <label class="field">
+                <span>New password</span>
+                <input type="password" id="newPasswordInput" autocomplete="new-password" required minlength="8" />
+              </label>
+              <label class="field">
+                <span>Confirm new password</span>
+                <input type="password" id="confirmPasswordInput" autocomplete="new-password" required minlength="8" />
+              </label>
+              <div class="field-error" id="passwordFormError" hidden></div>
+              <button type="submit" class="btn btn-solid btn-small" id="passwordSubmitBtn">Change password</button>
+            </form>
+          </div>
+
+          <div class="panel danger-zone">
+            <div class="panel-header">
+              <h2>Danger zone</h2>
+            </div>
+            <p class="empty-state" id="deleteIntro">Permanently delete your account and everything in it — classes, tasks, sign-in. This can't be undone.</p>
+            <button type="button" class="link-btn danger-link" id="showDeleteBtn">Delete my account</button>
+
+            <form id="deleteForm" class="inline-form" hidden>
+              <label class="field">
+                <span>Enter your password to confirm</span>
+                <input type="password" id="deletePasswordInput" autocomplete="current-password" required />
+              </label>
+              <div class="field-error" id="deleteFormError" hidden></div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-solid btn-small danger-btn" id="deleteSubmitBtn">Yes, delete my account</button>
+                <button type="button" class="link-btn" id="cancelDeleteBtn">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+      <a class="footer-cta" href="board.html">← Back to board</a>
+    </div>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script src="data.js"></script>
+  <script src="profile.js"></script>
+</body>
+</html>
