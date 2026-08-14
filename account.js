@@ -50,8 +50,9 @@ authForm.addEventListener('submit', async (e) => {
       if (passwordInput.value.length < 8) throw new Error('Password needs at least 8 characters.');
       const wasGuest = existingSession?.guest;
       const guestData = wasGuest ? loadData() : null;
+      const hasGuestData = guestData && Object.values(guestData).some((arr) => arr.length > 0);
       await createAccount(nameInput.value, emailInput.value, passwordInput.value);
-      if (guestData && (guestData.classes.length || guestData.tasks.length)) {
+      if (hasGuestData) {
         saveData(guestData);
       }
     } else {
